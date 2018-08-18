@@ -54,8 +54,9 @@ begin
 	
 	sum_ext<=a_ext+b_ext;
 	
-	rest_ext<=a_ext-b_ext when a_ext>=b_ext else
-						  b_ext-a_ext;
+	rest_ext<=a_ext-b_ext when a_ext>b_ext else
+		  b_ext-a_ext when a_ext<b_ext else
+		  "0000";
 						  
 	--multiplexor del signo dominante entre a y b. Comparo sus magnitudes
 	tot_ext<=sum_ext when sign_a=sign_b else
